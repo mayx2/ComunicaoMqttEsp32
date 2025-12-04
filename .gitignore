@@ -1,0 +1,16 @@
+# Pastas de build
+build/
+build-*/
+
+# Configurações do VSCode
+.vscode/
+.devcontainer/
+.clangd
+
+# Arquivos de firmware/compilação
+*.bin
+*.elf
+*.log
+
+# Configurações temporárias do SDK
+sdkconfig.ci*
