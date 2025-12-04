@@ -11,7 +11,7 @@ Quando o botão da placa 2 é pressionado, **o LED da placa 1** acende.
 
 A comunicação ocorre via **Wi-Fi Station** e **MQTT** usando o broker público HiveMQ.
 
----
+
 
 # **1. Inicialização do sistema**
 
@@ -26,7 +26,7 @@ No `app_main()` o ESP32:
 4. Inicia o cliente MQTT.
 5. Cria a task que monitora o botão.
 
----
+
 
 # **2. Configuração dos pinos**
 
@@ -43,7 +43,6 @@ Estado do botão:
 
 `led_set_state()` liga/desliga o LED.
 
----
 
 # **3. Publicação do estado do botão (botao_task)**
 
@@ -59,7 +58,7 @@ A task:
 
 Publica apenas quando o estado realmente muda.
 
----
+
 
 # **4. Comunicação MQTT – Subscrição e Recebimento**
 
@@ -75,7 +74,7 @@ Quando chega uma mensagem (`MQTT_EVENT_DATA`):
 
 Assim cada ESP controla o LED da outra placa.
 
----
+
 
 # **5. Ciclo de funcionamento**
 
@@ -91,7 +90,7 @@ Assim cada ESP controla o LED da outra placa.
 
 Mesma lógica para soltar o botão.
 
----
+
 
 # **6. Broker MQTT utilizado**
 
@@ -101,7 +100,6 @@ mqtt://broker.hivemq.com:1883
 
 Broker público sem autenticação.
 
----
 
 # **7. Estrutura geral do código**
 
@@ -125,7 +123,7 @@ Usa `esp-mqtt`.
 
 GPIO 21.
 
----
+
 
 ## **Funcionamento entre as duas placas ESP**
 
@@ -143,7 +141,7 @@ Ambas usam o mesmo código; só muda o **tópico MQTT**.
 
 Cada ESP publica seu tópico e assina o do outro.
 
----
+
 
 ##  **Configurando o Wi-Fi**
 
@@ -156,7 +154,7 @@ No `wifi.c`, basta alterar:
 
 Ambos os ESP conectam automaticamente.
 
----
+
 
 # **Funcionamento Resumido do Projeto**
 
